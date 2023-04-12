@@ -1,0 +1,23 @@
+{
+  "name": "@bytedo/gzip",
+  "type": "module",
+  "description": "zlib port to javascript - fast, modularized, with browser support",
+  "version": "2.1.0",
+  "keywords": [
+    "zlib",
+    "deflate",
+    "inflate",
+    "gzip"
+  ],
+  "files": [
+    "dist/*"
+  ],
+  "license": "(MIT AND Zlib)",
+  "repository": "bytedo/gzip",
+  "scripts": {
+    "build": "esbuild index.js --minify --bundle --format=esm --target=esnext --outfile=dist/index.js"
+  },
+  "devDependencies": {
+    "esbuild": "^0.17.16"
+  }
+}

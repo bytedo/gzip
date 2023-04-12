@@ -1,0 +1,7 @@
+.nyc_output
+doc/
+node_modules/
+dist/
+*.log
+package-lock.json
+test.js

@@ -1,6 +1,11 @@
 import zlib_inflate from './zlib/inflate.js'
 import { flattenChunks } from './utils/common.js'
-import { string2buf, utf8border, buf2string } from './utils/strings.js'
+import {
+  utf8border,
+  string2buf,
+  buf2string,
+  base642buf
+} from './utils/strings.js'
 import msg from './zlib/messages.js'
 import ZStream from './zlib/zstream.js'
 import GZheader from './zlib/gzheader.js'
@@ -388,12 +393,12 @@ Inflate.prototype.onEnd = function (status) {
 function ungzip(input, options) {
   const inflator = new Inflate(options)
 
-  inflator.push(input)
+  inflator.push(base642buf(input))
 
   // That will never happens, if you don't cheat with options :)
   if (inflator.err) throw inflator.msg || msg[inflator.err]
 
-  return inflator.result
+  return buf2string(inflator.result)
 }
 
 /**

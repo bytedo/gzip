@@ -1,23 +1,27 @@
 {
   "name": "@bytedo/gzip",
   "type": "module",
-  "description": "zlib port to javascript - fast, modularized, with browser support",
+  "description": "浏览器端的gzip库, fork于pako, 仅调整语法为esm, 并只保留gzip的导出。",
   "version": "2.1.0",
   "keywords": [
-    "zlib",
-    "deflate",
-    "inflate",
-    "gzip"
+    "gzip",
+    "ungzip"
   ],
   "files": [
     "dist/*"
   ],
-  "license": "(MIT AND Zlib)",
-  "repository": "bytedo/gzip",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bytedo/gzip.git"
+  },
   "scripts": {
-    "build": "esbuild index.js --minify --bundle --format=esm --target=esnext --outfile=dist/index.js"
+    "build:gzip": "esbuild src/gzip.js --minify --bundle --format=esm --target=esnext --outfile=dist/gzip.js",
+    "build:ungzip": "esbuild src/ungzip.js --minify --bundle --format=esm --target=esnext --outfile=dist/ungzip.js",
+    "build:all": "esbuild src/index.js --format=esm --outfile=dist/index.js",
+    "build": "npm run build:gzip && npm run build:ungzip && npm run build:all"
   },
   "devDependencies": {
     "esbuild": "^0.17.16"
-  }
+  },
+  "license": "(MIT AND Zlib)"
 }

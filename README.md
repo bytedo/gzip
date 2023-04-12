@@ -4,6 +4,7 @@
 ### 版本同步状态: 
 
 pako: ![pako](https://img.shields.io/npm/v/pako.svg)
+
 @bytedo/gzip: ![@bytedo/gzip](https://img.shields.io/npm/v/@bytedo/gzip.svg)
 
 
@@ -22,10 +23,14 @@ import { gzip , ungzip } from '@bytedo/gzip' // use importmap
 // or
 import { gzip , ungzip } from '//jscdn.ink/@bytedo/gzip/latest/index.js'
 
+// 也可以单独引入
+import { gzip } from '//jscdn.ink/@bytedo/gzip/latest/gzip.js'
+import { ungzip } from '//jscdn.ink/@bytedo/gzip/latest/ungzip.js'
 
-let res = gzip('hello world')  // return Uint8Array object
 
-let txt = ungzip(res) // return Uint8Array object
+let base64Str = gzip('hello world')  // return base64 string
+
+let txt = ungzip(base64Str) // return hello world
 
 ```
 

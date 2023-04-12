@@ -1,6 +1,6 @@
 import zlib_deflate from './zlib/deflate.js'
 import { flattenChunks } from './utils/common.js'
-import { string2buf } from './utils/strings.js'
+import { string2buf, buf2base64 } from './utils/strings.js'
 import msg from './zlib/messages.js'
 import ZStream from './zlib/zstream.js'
 
@@ -357,7 +357,7 @@ function deflate(input, options) {
 function gzip(input, options) {
   options = options || {}
   options.gzip = true
-  return deflate(input, options)
+  return buf2base64(deflate(input, options))
 }
 
 export { gzip }

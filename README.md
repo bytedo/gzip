@@ -1,5 +1,5 @@
 ## @bytedo/gzip
-> 浏览器端的gzip库, fork于pako, 仅调整语法为esm, 并只保留gzip的导出。
+> 浏览器端的gzip库, fork于[pako](https://github.com/nodeca/pako), 仅调整语法为esm, 并只保留gzip的导出。
 
 
 ### 安装&使用

@@ -356,9 +356,9 @@ Inflate.prototype.onEnd = function (status) {
  * - data (Uint8Array|ArrayBuffer): input data to decompress.
  * - options (Object): zlib inflate options.
  *
- * Decompress `data` with inflate/ungzip and `options`. Autodetect
+ * Decompress `data` with inflate/gunzip and `options`. Autodetect
  * format via wrapper header by default. That's why we don't provide
- * separate `ungzip` method.
+ * separate `gunzip` method.
  *
  * Supported options are:
  *
@@ -390,7 +390,7 @@ Inflate.prototype.onEnd = function (status) {
  * }
  * ```
  **/
-function ungzip(input, options) {
+function gunzip(input, options) {
   const inflator = new Inflate(options)
 
   inflator.push(base642buf(input))
@@ -402,7 +402,7 @@ function ungzip(input, options) {
 }
 
 /**
- * ungzip(data[, options]) -> Uint8Array|String
+ * gunzip(data[, options]) -> Uint8Array|String
  * - data (Uint8Array|ArrayBuffer): input data to decompress.
  * - options (Object): zlib inflate options.
  *
@@ -410,4 +410,4 @@ function ungzip(input, options) {
  * by header.content. Done for convenience.
  **/
 
-export { ungzip }
+export { gunzip }

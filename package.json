@@ -2,10 +2,10 @@
   "name": "@bytedo/gzip",
   "type": "module",
   "description": "浏览器端的gzip库, fork于pako, 仅调整语法为esm, 并只保留gzip的导出。",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "keywords": [
     "gzip",
-    "ungzip"
+    "gunzip"
   ],
   "files": [
     "dist/*"
@@ -16,9 +16,9 @@
   },
   "scripts": {
     "build:gzip": "esbuild src/gzip.js --minify --bundle --format=esm --target=esnext --outfile=dist/gzip.js",
-    "build:ungzip": "esbuild src/ungzip.js --minify --bundle --format=esm --target=esnext --outfile=dist/ungzip.js",
+    "build:gunzip": "esbuild src/gunzip.js --minify --bundle --format=esm --target=esnext --outfile=dist/gunzip.js",
     "build:all": "esbuild src/index.js --format=esm --outfile=dist/index.js",
-    "build": "npm run build:gzip && npm run build:ungzip && npm run build:all"
+    "build": "npm run build:gzip && npm run build:gunzip && npm run build:all"
   },
   "devDependencies": {
     "esbuild": "^0.17.16"
